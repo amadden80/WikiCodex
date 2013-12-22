@@ -25,15 +25,18 @@ function drawing_paper() {
         
         if (mousedown){
             var m = d3.mouse(this);
-      
-            line.attr("x2", m[0])
-                .attr("y2", m[1]);
+
+            var stop_x = (parseInt(line.attr("x1")) + parseInt(m[0]))/2;
+            var stop_y = (parseInt(line.attr("y1")) + parseInt(m[1]))/2;
+        
+            line.attr("x2", stop_x)
+                .attr("y2", stop_y);
         
             line = vis.append("line")
-                .attr("x1", m[0])
-                .attr("y1", m[1])
-                .attr("x2", m[0])
-                .attr("y2", m[1]);
+                .attr("x1", stop_x)
+                .attr("y1", stop_y)
+                .attr("x2", stop_x)
+                .attr("y2", stop_y);
         }  
         
     };
