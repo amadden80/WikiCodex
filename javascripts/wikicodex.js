@@ -36,6 +36,12 @@ function drawing_paper() {
             .attr("style", 'stroke-width: '+ line_width + 'px; stroke: '+line_color+';');
     
 
+    var circle = paper.append("circle")
+                        .attr("cx", stop_x)
+                        .attr("cy", stop_y)
+                        .attr("r", line_width/2)
+                        .style("fill", line_color);
+
 
         line = paper.append("line")
             .attr("x1", stop_x)
